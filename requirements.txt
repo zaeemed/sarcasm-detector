@@ -1,0 +1,16 @@
+numpy
+pandas
+chart_studio
+plotly
+regex
+more-itertools
+collection
+scikit-learn
+matplotlib
+wordcloud
+seaborn
+keras
+tensorflow
+joblib
+streamlit
+pillow
