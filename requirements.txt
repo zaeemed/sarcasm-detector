@@ -8,4 +8,4 @@ streamlit
 pillow
 tensorflow-cpu
 nltk
-pickle
+pickle-mixin
