@@ -10,6 +10,7 @@ from sklearn.preprocessing import MinMaxScaler
 from nltk.stem import WordNetLemmatizer
 import nltk
 
+nltk.download('stopwords')
 max_words = 1000
 max_len = 150
 with open('tokenizer.pickle', 'rb') as handle:
