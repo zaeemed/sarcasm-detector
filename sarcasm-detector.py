@@ -1,5 +1,4 @@
 from PIL import Image
-import matplotlib.pyplot as plt
 import pickle
 import numpy as np
 import pandas as pd

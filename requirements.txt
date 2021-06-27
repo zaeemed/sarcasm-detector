@@ -2,9 +2,10 @@ numpy
 pandas
 scikit-learn
 matplotlib
-wordcloud
-seaborn
 keras
 joblib
 streamlit
 pillow
+tenserflow
+nltk
+pickle
