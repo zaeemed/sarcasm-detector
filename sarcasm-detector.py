@@ -14,11 +14,6 @@ from keras.models import model_from_yaml
 
 max_words = 1000
 max_len = 150
-with open('tokenizer.pickle', 'rb') as handle:
-    tokenizer = pickle.load(handle)
-stopwords = nltk.corpus.stopwords.words('english')
-lemm = WordNetLemmatizer()
-scaler = MinMaxScaler()
 
 @st.cache(suppress_st_warning=True, allow_output_mutation=True)
 def load_RNN_model():
@@ -27,11 +22,13 @@ def load_RNN_model():
     yaml_file.close()
     loaded_model = model_from_yaml(loaded_model_yaml)
     loaded_model.load_weights("RNN_model.h5")
-    print("Loaded model from disk")
     nltk.download('stopwords')
     with open('tokenizer.pickle', 'rb') as handle:
         tokenizer = pickle.load(handle)
-    return loaded_model, tokenizer
+    stopwords = nltk.corpus.stopwords.words('english')
+    lemm = WordNetLemmatizer()
+    scaler = MinMaxScaler()
+    return loaded_model, tokenizer, lemm, scaler, stopwords
 # Title
 st.markdown("<h1 style = 'color:Gold; Text-align: Center; font-size: 40px;'>Sarcasm Detector</h1>", unsafe_allow_html=True)
 
@@ -42,7 +39,7 @@ img = Image.open("./images/sarcasm.jpg")
 st.image(img, width = 700)
 
 # loading the model
-RNN_model,tokenizer = load_RNN_model()
+RNN_model,tokenizer, lemm, scaler, stopwords = load_RNN_model()
 
 # user input pre processing
 def user_text_processing(user_text):
