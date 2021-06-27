@@ -48,7 +48,7 @@ def user_text_processing(user_text):
     user_text = [lemm.lemmatize(word) for word in user_text]
 
     # converting user text to sequence
-    user_seq = np.array(user_text)
+    user_seq = user_text
     user_seq = tokenizer.texts_to_sequences(user_seq)
     user_seq = sequence.pad_sequences(user_seq,maxlen=max_len)
     
@@ -61,7 +61,7 @@ def predict_sarcasm(user_seq):
 #     prediction
     prob = RNN_model.predict(user_seq)
     probability = np.mean(prob, axis=0)
-    probability
+    # probability
     if probability > 0.5:
         st.success(f"Sentence '{user_text}' is of 'Sarcastic' nature")
         img = Image.open("./images/sarcastic.png")
