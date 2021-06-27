@@ -7,5 +7,4 @@ joblib
 streamlit
 pillow
 tensorflow-cpu
-nltk
 pickle-mixin
