@@ -25,10 +25,11 @@ def load_RNN_model():
     nltk.download('stopwords')
     with open('tokenizer.pickle', 'rb') as handle:
         tokenizer = pickle.load(handle)
-    stopwords = nltk.corpus.stopwords.words('english')
-    lemm = WordNetLemmatizer()
-    scaler = MinMaxScaler()
-    return loaded_model, tokenizer, lemm, scaler, stopwords
+    return loaded_model, tokenizer
+
+stopwords = nltk.corpus.stopwords.words('english')
+lemm = WordNetLemmatizer()
+scaler = MinMaxScaler()
 # Title
 st.markdown("<h1 style = 'color:Gold; Text-align: Center; font-size: 40px;'>Sarcasm Detector</h1>", unsafe_allow_html=True)
 
@@ -39,7 +40,7 @@ img = Image.open("./images/sarcasm.jpg")
 st.image(img, width = 700)
 
 # loading the model
-RNN_model,tokenizer, lemm, scaler, stopwords = load_RNN_model()
+RNN_model,tokenizer = load_RNN_model()
 
 # user input pre processing
 def user_text_processing(user_text):
