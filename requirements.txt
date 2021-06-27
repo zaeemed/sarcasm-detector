@@ -6,6 +6,6 @@ keras
 joblib
 streamlit
 pillow
-tenserflow
+tensorflow-cpu
 nltk
 pickle
